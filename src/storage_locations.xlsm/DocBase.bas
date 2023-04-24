@@ -33,23 +33,23 @@ Private Function doc_dao(ByVal purpose As String, ByRef results_dto() As Integer
             results_dto(UBound(results_dto)) = i
         End If
     Next
-   
+
     doc_dao = results_dto()
-    
+
 End Function
 
 '•\¦
 Private Function presenter(ByRef results_dto() As Integer)
     'o—Í•¶š—ñ
     Dim msg As Range: Set msg = Worksheets(MAIN_SHEET).Range(MSG_CELL)
-    Dim key As Variant
-
+    Dim key As Integer
+    Dim tar As Worksheet: Set tar = Worksheets(TARGET_SHEET)
     Dim count As Integer: count = UBound(results_dto)
 
     For Each key In results_dto
         '
     Next key
-    
+
     If count > 0 Then
         msg = count & "ŒŒ©‚Â‚©‚è‚Ü‚µ‚½D"
     Else
