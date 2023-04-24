@@ -46,6 +46,9 @@ Private Function presenter(ByRef results_dto() As Integer)
     Dim tar As Worksheet: Set tar = Worksheets(TARGET_SHEET)
     Dim count As Integer: count = UBound(results_dto)
 
+    'シートの保護解除
+    Worksheets(MAIN_SHEET).UnProtect "tyco"
+
     For Each key In results_dto
         '
     Next key
@@ -55,6 +58,9 @@ Private Function presenter(ByRef results_dto() As Integer)
     Else
         msg = "見つかりませんでした．"
     End If
+
+    'シートの保護有効化
+    Worksheets(MAIN_SHEET).Protect "tyco"
 
 End Function
 
